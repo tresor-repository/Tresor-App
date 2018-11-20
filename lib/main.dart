@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tresor_app/list_of_spending.dart';
+import 'package:tresor_app/home/add_spending_tab.dart';
 import 'package:tresor_app/styles.dart';
 
 void main() => runApp(new MyApp());
@@ -24,16 +24,84 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<Widget> widgetList = <Widget>[
+    AddSpendingTab(),
+    AddSpendingTab(),
+    AddSpendingTab(),
+    AddSpendingTab(),
+  ];
+
+  int currentIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    currentIndex = 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("New Tresor App"),
-      ),
-      body: Container(
-        child: ListOfSpending(),
-        color: lightGrey,
-      ),
-    );
+        appBar: new AppBar(
+          title: new Text("New Tresor App"),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/ic_burger_icon_big.png',
+                  height: 40.0,
+                  width: 40.0,
+                ),
+                title: Text(
+                  'Home',
+                  style: TextStyle(color: mainColor),
+                )),
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/ic_burger_icon_big.png',
+                  height: 40.0,
+                  width: 40.0,
+                ),
+                title: Text(
+                  'Home',
+                  style: TextStyle(color: mainColor),
+                )),
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/ic_burger_icon_big.png',
+                  height: 40.0,
+                  width: 40.0,
+                ),
+                title: Text(
+                  'Home',
+                  style: TextStyle(color: mainColor),
+                )),
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/ic_burger_icon_big.png',
+                  height: 40.0,
+                  width: 40.0,
+                ),
+                title: Text(
+                  'Home',
+                  style: TextStyle(color: mainColor),
+                )),
+          ],
+          currentIndex: currentIndex,
+          iconSize: 40.0,
+          fixedColor: mainColor,
+          onTap: (selectedIndex) {
+            setState(() {
+              currentIndex = selectedIndex;
+            });
+          },
+        ),
+        body: Center(
+          child: Container(
+            child: widgetList[currentIndex],
+            color: lightGrey,
+          ),
+        ));
   }
 }
