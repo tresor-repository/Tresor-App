@@ -8,6 +8,7 @@ class SpendingTotal extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(4.0)),
+        boxShadow: genericShadow
       ),
       padding: EdgeInsets.symmetric(
         horizontal: smallPadding,

@@ -8,6 +8,7 @@ class ListViewItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(6.0)),
+        boxShadow: genericShadow,
       ),
       margin: EdgeInsets.all(6.0),
       padding: EdgeInsets.all(12.0),
